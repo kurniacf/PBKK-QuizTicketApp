@@ -31,6 +31,8 @@ $routes->group('user', function ($routes) {
     $routes->get('/', 'UserController::index', ['as' => 'user.index']);
     $routes->get('create', 'UserController::create', ['as' => 'user.create']);
     $routes->post('store', 'UserController::store', ['as' => 'user.store']);
+    $routes->get('login', 'UserController::login', ['as' => 'user.login']);
+    $routes->post('login', 'UserController::login', ['as' => 'user.login']);
     $routes->get('edit/(:num)', 'UserController::edit/$1', ['as' => 'user.edit']);
     $routes->post('update/(:num)', 'UserController::update/$1', ['as' => 'user.update']);
     $routes->get('delete/(:num)', 'UserController::delete/$1', ['as' => 'user.delete']);
