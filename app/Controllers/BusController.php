@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\BusModel;
+use App\Models\BookingModel;
 use CodeIgniter\Controller;
 
 class BusController extends Controller

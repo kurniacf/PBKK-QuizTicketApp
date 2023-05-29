@@ -23,7 +23,8 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  */
 
-$routes->get('/', 'Home::index');
+$routes->get('/', 'LandingController::index', ['as' => 'landing']);
+$routes->get('/home', 'Home::index');
 $routes->get('/DatabaseTest', 'DatabaseTest::index');
 
 $routes->group('user', function ($routes) {
@@ -33,6 +34,17 @@ $routes->group('user', function ($routes) {
     $routes->get('edit/(:num)', 'UserController::edit/$1', ['as' => 'user.edit']);
     $routes->post('update/(:num)', 'UserController::update/$1', ['as' => 'user.update']);
     $routes->get('delete/(:num)', 'UserController::delete/$1', ['as' => 'user.delete']);
+});
+
+$routes->group('bus', function ($routes) {
+    $routes->get('/', 'BusController::index', ['as' => 'bus.index']);
+    $routes->get('create', 'BusController::create', ['as' => 'bus.create']);
+    $routes->post('store', 'BusController::store', ['as' => 'bus.store']);
+    $routes->get('edit/(:num)', 'BusController::edit/$1', ['as' => 'bus.edit']);
+    $routes->post('update/(:num)', 'BusController::update/$1', ['as' => 'bus.update']);
+    $routes->get('delete/(:num)', 'BusController::delete/$1', ['as' => 'bus.delete']);
+    $routes->get('book/(:num)', 'BusController::book/$1', ['as' => 'bus.book']);
+    $routes->post('process-booking/(:num)', 'BusController::processBooking/$1', ['as' => 'bus.processBooking']);
 });
 
 
