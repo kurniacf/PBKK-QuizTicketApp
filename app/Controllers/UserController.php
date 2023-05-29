@@ -15,6 +15,31 @@ class UserController extends Controller
         return view('user/index', $data);
     }
 
+    public function login()
+    {
+        $model = new UserModel();
+        $login = $this->request->getVar('login');
+        if ($login) {
+            $name = $this->request->getVar('name');
+            $password = $this->request->getVar('password');
+
+            $dataName = $model->where('name', $name)->first();
+
+            if ($dataName['password'] != $password) {
+                $err = "Username atau Password salah";
+                echo $err;
+            } else {
+                echo "Login Berhasil";
+                $session = session();
+                $session->set('name', $dataName['name']);
+                $session->set('role', $dataName['role']);
+                return redirect()->route('landing');
+            }
+        }
+
+        return view('user/login');
+    }
+
     public function create()
     {
         return view('user/create');
@@ -40,7 +65,7 @@ class UserController extends Controller
         $model->save([
             'name'     => $this->request->getVar('name'),
             'email'    => $this->request->getVar('email'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'password' => $this->request->getVar('password'),
             'address'  => $this->request->getVar('address'),
             'phone'    => $this->request->getVar('phone'),
             'role'     => $this->request->getVar('role')

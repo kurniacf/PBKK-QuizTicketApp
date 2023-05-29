@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +63,9 @@
         }
     </style>
 </head>
+
 <body>
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">TicketyBus</a>
@@ -151,5 +154,35 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+=======
+    <header>
+        <!-- Tambahkan header sesuai kebutuhan -->
+    </header>
+
+    <main>
+        <section>
+            <h1>Selamat Datang di Aplikasi Pemesanan Tiket Online</h1>
+            <!-- Tambahkan informasi umum tentang aplikasi -->
+        </section>
+
+        <section>
+            <h2>Tautan Referensi</h2>
+            <ul>
+                <li><a href="<?= route_to('user.login') ?>">Login</a></li>
+                <li><a href="<?= route_to('user.create') ?>">Register</a></li>
+                <li><a href="<?= route_to('bus.index') ?>">Daftar Bus</a></li>
+                <li><a href="<?= route_to('booking') ?>">Booking Tiket</a></li>
+                <!-- Tambahkan tautan referensi lainnya -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Tambahkan footer sesuai kebutuhan -->
+    </footer>
+
+    <!-- Tambahkan script atau JavaScript yang diperlukan -->
+>>>>>>> 864a118931dad96c17806e8a8f8c6f7907fef54d
 </body>
+
 </html>
