@@ -78,10 +78,15 @@
                 <td><?= $bus['bus_type'] ?></td>
                 <td><?= $bus['total_seats'] ?></td>
                 <td>
-                    <a href="<?= route_to('bus.book', $bus['id']) ?>" class="btn btn-primary">Pesan</a>
-                    <a href="<?= route_to('bus.edit', $bus['id']) ?>" class="btn btn-warning">Edit</a>
-                    <a href="<?= route_to('bus.delete', $bus['id']) ?>" class="btn btn-danger">Hapus</a>
+                    <?php if(session()->get('role') === 'user'): ?>
+                        <a href="<?= route_to('bus.book', $bus['id']) ?>" class="btn btn-primary">Pesan</a>
+                    <?php endif; ?>
+                    <?php if(session()->get('role') === 'admin'): ?>
+                        <a href="<?= route_to('bus.edit', $bus['id']) ?>" class="btn btn-warning">Edit</a>
+                        <a href="<?= route_to('bus.delete', $bus['id']) ?>" class="btn btn-danger">Hapus</a>
+                    <?php endif; ?>
                 </td>
+
             </tr>
         <?php endforeach ?>
         </tbody>

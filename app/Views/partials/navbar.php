@@ -34,6 +34,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= route_to('booking') ?>">Booking Tiket</a>
                 </li>
+                <?php if (session()->get('role') === 'admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= route_to('user.dashboard') ?>">Dashboard</a>
+                    </li>
+                    <!-- rest of your code -->
+                <?php endif; ?>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <?php if (session()->get('name')): ?>

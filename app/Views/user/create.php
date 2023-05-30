@@ -7,25 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>Register</title>
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .card {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            transition: transform .2s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container mt-5 col-5">
-        <div class="card">
-            <div class="card-header bg-primary text-white">
-                Register
-            </div>
-            <div class="card-body">
-                <div class="mb-3">
+<?= $this->include('partials/navbar') ?>
+
+<div class="container mt-5 col-5">
+    <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Register
+                </div>
+                <div class="card-body">
                     <form action="<?= route_to('user.store') ?>" method="POST">
                         <?php if (session()->getFlashdata('error')) { ?>
                             <div class="alert alert-danger">
-                                <?php echo session()->getFlashdata('error') ?>
+                                <?= session()->getFlashdata('error') ?>
                             </div>
                         <?php } ?>
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama</label>
-                            <input type="text" name="name" class="form-control" id=" name" required placeholder="Masukkan Nama...">
+                            <input type="text" name="name" class="form-control" id="name" required placeholder="Masukkan Nama...">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">E-Mail</label>
@@ -55,7 +72,9 @@
             </div>
         </div>
     </div>
+</div>
 
+<?= $this->include('partials/footer') ?>
 </body>
 
 </html>

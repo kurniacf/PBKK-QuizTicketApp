@@ -18,6 +18,11 @@ class BusController extends Controller
 
     public function create()
     {
+        // Check if user is admin
+        if (session()->get('role') !== 'admin') {
+            return redirect()->route('bus.index');
+        }
+        // Rest of your code
         return view('bus/create');
     }
 

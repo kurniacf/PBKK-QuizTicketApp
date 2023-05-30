@@ -9,6 +9,11 @@ class UserController extends Controller
 {
     public function index()
     {
+        // Cek jika pengguna tidak login atau bukan admin
+        if (!session()->get('name') || session()->get('role') != 'admin') {
+            return redirect()->route('landing');
+        }
+
         $model = new UserModel();
         $data['users'] = $model->findAll();
 
@@ -32,7 +37,9 @@ class UserController extends Controller
                 $session = session();
                 $session->set('name', $dataEmail['name']);
                 $session->set('role', $dataEmail['role']);
-                return redirect()->route('landing');
+                return $dataEmail['role'] === 'admin'
+                    ? redirect()->route('user.dashboard')
+                    : redirect()->route('landing');
             }
         }
 
@@ -70,13 +77,17 @@ class UserController extends Controller
         $model->save([
             'name'     => $this->request->getVar('name'),
             'email'    => $this->request->getVar('email'),
-            'password' => $this->request->getVar('password'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'address'  => $this->request->getVar('address'),
             'phone'    => $this->request->getVar('phone'),
             'role'     => $this->request->getVar('role')
         ]);
 
-        return redirect()->route('user.index')->with('message', 'Pengguna berhasil ditambahkan.');
+        $session = session();
+        $session->set('name', $this->request->getVar('name'));
+        $session->set('role', $this->request->getVar('role'));
+
+        return redirect()->route('landing')->with('message', 'Pengguna berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -127,21 +138,29 @@ class UserController extends Controller
 
     public function profile()
     {
-        // Cek apakah pengguna sudah login. Jika belum, arahkan ke halaman login.
         if (!session()->get('name')) {
             return redirect()->route('user.login');
         }
 
-        // Dapatkan informasi pengguna dari database berdasarkan nama pengguna yang disimpan dalam sesi.
         $model = new UserModel();
         $user = $model->where('name', session()->get('name'))->first();
 
-        // Jika tidak ada pengguna dengan nama tersebut, arahkan ke halaman login.
         if (!$user) {
             return redirect()->route('user.login');
         }
 
-        // Jika pengguna ditemukan, tampilkan halaman profil dengan data pengguna.
         return view('user/profile', ['user' => $user]);
+    }
+
+    public function dashboard()
+    {
+        if (!session()->get('name') || session()->get('role') != 'admin') {
+            return redirect()->route('landing');
+        }
+
+        $model = new UserModel();
+        $data['users'] = $model->findAll();
+
+        return view('user/dashboard', $data);
     }
 }
