@@ -7,7 +7,6 @@
 
 <body>
     <h1>Edit Pengguna</h1>
-
     <?php if (session()->getFlashdata('errors')) : ?>
         <div>
             <?php foreach (session()->getFlashdata('errors') as $error) : ?>

@@ -54,6 +54,9 @@ $routes->group('routes', function ($routes) {
     $routes->get('/', 'RoutesController::index', ['as' => 'routes.index']);
     $routes->get('create', 'RoutesController::create', ['as' => 'routes.create']);
     $routes->post('store', 'RoutesController::store', ['as' => 'routes.store']);
+    $routes->get('edit/(:num)', 'RoutesController::edit/$1', ['as' => 'routes.edit']);
+    $routes->post('update/(:num)', 'RoutesController::update/$1', ['as' => 'routes.update']);
+    $routes->get('delete/(:num)', 'RoutesController::delete/$1', ['as' => 'routes.delete']);
 });
 
 

@@ -20,6 +20,7 @@
                 <th>Jarak</th>
                 <th>Waktu</th>
                 <th>Tarif</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +32,8 @@
                     <td><?= $route['travel_time'] ?></td>
                     <td><?= $route['fare'] ?></td>
                     <td>
-
+                        <a href="<?= route_to('routes.edit', $route['id']) ?>">Edit</a>
+                        <a href="<?= route_to('routes.delete', $route['id']) ?>">Hapus</a>
                     </td>
                 </tr>
             <?php endforeach ?>
