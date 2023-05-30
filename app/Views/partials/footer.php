@@ -6,10 +6,11 @@
         width: 100%;
         bottom: 0;
         left: 0;
+        position: relative;
     }
 </style>
 
-<footer class="footer mt-4" style="position: relative;">
+<footer class="footer mt-4">
     <div class="container text-center">
         <p>&copy; 2023 KurniaCF & Rere Arga</p>
         <p>Surabaya, Indonesia</p>

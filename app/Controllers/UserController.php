@@ -18,16 +18,15 @@ class UserController extends Controller
     public function login()
     {
         $model = new UserModel();
-        $login = $this->request->getVar('login');
+        $login = $this->request->getPost();
         if ($login) {
-            $email = $this->request->getVar('email');
-            $password = $this->request->getVar('password');
+            $email = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
 
             $dataEmail = $model->where('email', $email)->first();
 
             if (!$dataEmail || !password_verify($password, $dataEmail['password'])) {
-                $err = "Email atau Password salah";
-                echo $err;
+                return redirect()->back()->with('error', 'Email atau Password salah');
             } else {
                 echo "Login Berhasil";
                 $session = session();
