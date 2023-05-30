@@ -9,7 +9,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        // Cek jika pengguna tidak login atau bukan admin
         if (!session()->get('name') || session()->get('role') != 'admin') {
             return redirect()->route('landing');
         }
@@ -17,7 +16,11 @@ class UserController extends Controller
         $model = new UserModel();
         $data['users'] = $model->findAll();
 
-        return view('user/index', $data);
+        if ($this->request->isAJAX()) {
+            return view('user/index', $data);
+        } else {
+            return view('user/dashboard', $data);
+        }
     }
 
     public function login()

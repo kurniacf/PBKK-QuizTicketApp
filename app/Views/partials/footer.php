@@ -7,6 +7,7 @@
         bottom: 0;
         left: 0;
         position: relative;
+        margin-top: 20px;
     }
 </style>
 

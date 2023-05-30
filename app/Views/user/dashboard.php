@@ -3,7 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".list-group-item-action").click(function(e) {
+                e.preventDefault();
+                const link = $(this).attr("href");
+                fetchContent(link);
+            });
+
+            function fetchContent(link) {
+                $.ajax({
+                    url: link,
+                    method: "GET",
+                    success: function(data) {
+                        $("#content").html(data);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    },
+                });
+            }
+
+            // Load first content when page is loaded
+            fetchContent('<?= route_to('user.index') ?>');
+        });
+    </script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -18,6 +45,15 @@
         }
         .table-hover tbody tr:hover {
             background-color: #f8f9fa;
+        }
+        .dashboard-title {
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 1em;
+            margin-top: 30px;
+        }
+        .table {
+            width: 100%;
+            margin-bottom: 1em;
         }
     </style>
 </head>
@@ -37,31 +73,10 @@
             </div>
         </div>
         <div class="col-md-9">
-            <h2 class="mb-3">Admin Dashboard</h2>
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Role</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($users as $user): ?>
-                    <tr>
-                        <th scope="row"><?= $user['id'] ?></th>
-                        <td><?= $user['name'] ?></td>
-                        <td><?= $user['email'] ?></td>
-                        <td><?= $user['address'] ?></td>
-                        <td><?= $user['phone'] ?></td>
-                        <td><?= $user['role'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+            <h2 class="dashboard-title">Admin Dashboard</h2>
+            <div id="content">
+                <!-- AJAX Content will be loaded here -->
+            </div>
         </div>
     </div>
 </div>
