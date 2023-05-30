@@ -33,6 +33,12 @@ class BusController extends Controller
             'bus_name'    => 'required',
             'bus_type'    => 'required',
             'total_seats' => 'required|integer',
+            'price'      => 'required|integer',
+            'departure_location' => 'required',
+            'arrival_location' => 'required',
+            'departure_time' => 'required',
+            'arrival_time' => 'required',
+            'distance' => 'required|integer',
             // tambahkan aturan validasi lainnya sesuai kebutuhan
         ]);
 
@@ -45,6 +51,12 @@ class BusController extends Controller
             'bus_name'    => $this->request->getVar('bus_name'),
             'bus_type'    => $this->request->getVar('bus_type'),
             'total_seats' => $this->request->getVar('total_seats'),
+            'price'      => $this->request->getVar('price'),
+            'departure_location' => $this->request->getVar('departure_location'),
+            'arrival_location' => $this->request->getVar('arrival_location'),
+            'departure_time' => $this->request->getVar('departure_time'),
+            'arrival_time' => $this->request->getVar('arrival_time'),
+            'distance' => $this->request->getVar('distance'),
             // tambahkan field dan data lainnya sesuai kebutuhan
         ]);
 
@@ -68,6 +80,12 @@ class BusController extends Controller
             'bus_name'    => 'required',
             'bus_type'    => 'required',
             'total_seats' => 'required|integer',
+            'price'      => 'required|integer',
+            'departure_location' => 'required',
+            'arrival_location' => 'required',
+            'departure_time' => 'required',
+            'arrival_time' => 'required',
+            'distance' => 'required|integer',
             // tambahkan aturan validasi lainnya sesuai kebutuhan
         ]);
 
@@ -79,6 +97,12 @@ class BusController extends Controller
             'bus_name'    => $this->request->getVar('bus_name'),
             'bus_type'    => $this->request->getVar('bus_type'),
             'total_seats' => $this->request->getVar('total_seats'),
+            'price'      => $this->request->getVar('price'),
+            'departure_location' => $this->request->getVar('departure_location'),
+            'arrival_location' => $this->request->getVar('arrival_location'),
+            'departure_time' => $this->request->getVar('departure_time'),
+            'arrival_time' => $this->request->getVar('arrival_time'),
+            'distance' => $this->request->getVar('distance'),
             // tambahkan field dan data lainnya sesuai kebutuhan
         ]);
 

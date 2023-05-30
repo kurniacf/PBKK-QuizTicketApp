@@ -34,19 +34,19 @@ class CreateBuses extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
-            'start_location' => [
+            'departure_location' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255'
             ],
-            'destination_location' => [
+            'arrival_location' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255'
             ],
-            'start_time' => [
+            'departure_time' => [
                 'type' => 'DATETIME',
                 'null' => true
             ],
-            'destination_time' => [
+            'arrival_time' => [
                 'type' => 'DATETIME',
                 'null' => true
             ],
