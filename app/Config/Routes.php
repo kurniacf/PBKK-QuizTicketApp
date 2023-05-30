@@ -50,6 +50,12 @@ $routes->group('bus', function ($routes) {
     $routes->post('process-booking/(:num)', 'BusController::processBooking/$1', ['as' => 'bus.processBooking']);
 });
 
+$routes->group('routes', function ($routes) {
+    $routes->get('/', 'RoutesController::index', ['as' => 'routes.index']);
+    $routes->get('create', 'RoutesController::create', ['as' => 'routes.create']);
+    $routes->post('store', 'RoutesController::store', ['as' => 'routes.store']);
+});
+
 
 /*
  * --------------------------------------------------------------------
