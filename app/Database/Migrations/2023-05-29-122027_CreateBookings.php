@@ -20,11 +20,6 @@ class CreateBookings extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
-            'route_id' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-            ],
             'bus_id' => [
                 'type' => 'INT',
                 'constraint' => 11,
@@ -54,9 +49,8 @@ class CreateBookings extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('user_id','users','id','CASCADE','CASCADE');
-        $this->forge->addForeignKey('route_id','routes','id','CASCADE','CASCADE');
-        $this->forge->addForeignKey('bus_id','buses','id','CASCADE','CASCADE');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('bus_id', 'buses', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('bookings');
     }
 
