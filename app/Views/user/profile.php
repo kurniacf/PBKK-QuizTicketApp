@@ -12,6 +12,7 @@
             background-color: #f8f9fa;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
 
@@ -53,6 +54,13 @@
                     <p><?= $user['address'] ?></p>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <a href="<?= route_to('user.edit', $user['id']) ?>" class="btn btn-primary btn-lg">
+                <i class="fas fa-edit"></i> Edit Profile
+            </a>
         </div>
     </div>
 </div>
