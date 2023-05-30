@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <?= $this->include('partials/navbar') ?>
     <div class="container mt-5 col-5">
         <div class="card">
             <div class="card-header bg-primary text-white">
@@ -55,7 +56,7 @@
             </div>
         </div>
     </div>
-
+    <?= $this->include('partials/footer') ?>
 </body>
 
 </html>
