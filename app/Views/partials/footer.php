@@ -1,3 +1,14 @@
+<style>
+    .footer {
+        background-color: #003600;
+        color: #ffffff;
+        padding: 20px 0;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+</style>
+
 <footer class="footer mt-4" style="position: relative;">
     <div class="container text-center">
         <p>&copy; 2023 KurniaCF & Rere Arga</p>

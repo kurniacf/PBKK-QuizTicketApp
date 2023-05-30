@@ -11,15 +11,6 @@
             background-color: #f7f7f7;
         }
 
-        .footer {
-            background-color: #003600;
-            color: #ffffff;
-            padding: 20px 0;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-        }
-
         .jumbotron {
             background: url('https://images.pexels.com/photos/2402648/pexels-photo-2402648.jpeg') no-repeat center center fixed;
             background-size: cover;
@@ -110,17 +101,7 @@
     </div>
 </div>
 
-<footer class="footer mt-4" style="position: relative;">
-    <div class="container text-center">
-        <p>&copy; 2023 KurniaCF & Rere Arga</p>
-        <p>Surabaya, Indonesia</p>
-        <a href="https://github.com/kurniacf/PBKK-QuizTicketApp" target="_blank">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="Github" style="height: 30px; width: 30px;">
-        </a>
-    </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<?= $this->include('partials/footer') ?>
 
 </body>
 

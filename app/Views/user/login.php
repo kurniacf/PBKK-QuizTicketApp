@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <<?= $this->include('partials/navbar') ?>
+
     <div class="container mt-5 col-5">
         <div class="card">
             <div class="card-header bg-primary text-white">
@@ -24,8 +26,8 @@
                             </div>
                         <?php } ?>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nama</label>
-                            <input type="text" name="name" class="form-control" id=" name" required placeholder="Masukkan Nama...">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" name="email" class="form-control" id="email" required placeholder="Masukkan Email...">
                         </div>
                         <div class="mb-3">
                             <label for="password">Password:</label>
@@ -39,7 +41,7 @@
             </div>
         </div>
     </div>
-
+    <?= $this->include('partials/footer') ?>
 </body>
 
 </html>

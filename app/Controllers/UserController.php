@@ -20,24 +20,30 @@ class UserController extends Controller
         $model = new UserModel();
         $login = $this->request->getVar('login');
         if ($login) {
-            $name = $this->request->getVar('name');
+            $email = $this->request->getVar('email');
             $password = $this->request->getVar('password');
 
-            $dataName = $model->where('name', $name)->first();
+            $dataEmail = $model->where('email', $email)->first();
 
-            if (!$dataName || !password_verify($password, $dataName['password'])) {
-                $err = "Username atau Password salah";
+            if (!$dataEmail || !password_verify($password, $dataEmail['password'])) {
+                $err = "Email atau Password salah";
                 echo $err;
             } else {
                 echo "Login Berhasil";
                 $session = session();
-                $session->set('name', $dataName['name']);
-                $session->set('role', $dataName['role']);
+                $session->set('name', $dataEmail['name']);
+                $session->set('role', $dataEmail['role']);
                 return redirect()->route('landing');
             }
         }
 
         return view('user/login');
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->route('landing');
     }
 
     public function create()

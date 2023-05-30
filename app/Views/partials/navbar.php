@@ -16,7 +16,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">TicketyBus</a>
+        <a class="navbar-brand" href="<?= route_to('landing') ?>">TicketyBus</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,6 +39,9 @@
                 <?php if (session()->get('name')): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= route_to('user.profile') ?>"><?= session()->get('name') ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= route_to('user.logout') ?>">Logout</a>
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
