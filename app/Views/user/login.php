@@ -11,10 +11,12 @@
         body {
             background: #f8f9fa;
         }
+
         .card {
             transition: transform .2s;
             cursor: pointer;
         }
+
         .card:hover {
             transform: scale(1.05);
         }
@@ -22,41 +24,41 @@
 </head>
 
 <body>
-<?= $this->include('partials/navbar') ?>
+    <?= $this->include('partials/navbar') ?>
 
-<div class="container mt-5 col-5">
-    <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    Login
-                </div>
-                <div class="card-body">
-                    <form action="" method="POST">
-                        <?php if (session()->getFlashdata('error')) { ?>
-                            <div class="alert alert-danger">
-                                <?= session()->getFlashdata('error') ?>
+    <div class="container mt-5 col-5">
+        <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Login
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            <?php if (session()->getFlashdata('error')) { ?>
+                                <div class="alert alert-danger">
+                                    <?= session()->getFlashdata('error') ?>
+                                </div>
+                            <?php } ?>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" name="email" class="form-control" id="email" required placeholder="Masukkan Email...">
                             </div>
-                        <?php } ?>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" name="email" class="form-control" id="email" required placeholder="Masukkan Email...">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password">Password:</label>
-                            <input type="password" name="password" class="form-control" id="password" required placeholder="Masukkan password...">
-                        </div>
-                        <div class="mb-3">
-                            <input type="submit" name="login" value="Login" class="btn btn-primary">
-                        </div>
-                    </form>
+                            <div class="mb-3">
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" class="form-control" id="password" required placeholder="Masukkan password...">
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="login" value="Login" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<?= $this->include('partials/footer') ?>
+    <?= $this->include('partials/footer') ?>
 </body>
 
 </html>

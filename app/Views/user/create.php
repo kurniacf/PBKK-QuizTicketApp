@@ -24,6 +24,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 <?= $this->include('partials/navbar') ?>
 
 <div class="container mt-5 col-5">
@@ -72,9 +73,13 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
 
 <?= $this->include('partials/footer') ?>
+=======
+    <?= $this->include('partials/footer') ?>
+>>>>>>> 9295e70f836fc1aacda6202a753d5f026cc66fb9
 </body>
 
 </html>
