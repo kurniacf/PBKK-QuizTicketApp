@@ -11,25 +11,10 @@
             background-color: #f7f7f7;
         }
 
-        .navbar {
-            background-color: #003600;
-        }
-
-        .navbar-brand,
-        .navbar-nav .nav-link {
-            color: #ffffff;
-        }
-
-        .navbar-brand:hover,
-        .navbar-nav .nav-link:hover {
-            color: #dddddd;
-        }
-
         .footer {
             background-color: #003600;
             color: #ffffff;
             padding: 20px 0;
-            position: fixed;
             width: 100%;
             bottom: 0;
             left: 0;
@@ -65,29 +50,12 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">TicketyBus</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= route_to('bus.index') ?>">Daftar Bus</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= route_to('bus.create') ?>">Tambah Bus</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+
+<?= $this->include('partials/navbar') ?>
 
 <div class="jumbotron">
     <div class="container">
-        <div class="card text-white bg-dark" style="opacity: 0.7;">
+        <div class="card text-white" style="opacity: 0.8; background-color: #212529; border: 2px solid white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             <div class="card-body">
                 <h1 class="card-title display-4">Selamat Datang di TicketyBus</h1>
                 <p class="card-text lead">Pemesanan tiket bus menjadi lebih mudah dan cepat.</p>
@@ -100,29 +68,34 @@
 </div>
 
 
+
 <div class="container">
+    <section class="mt-4" style="background-color: #f9f9f9; padding: 20px; border-radius: 15px;">
+        <h2>About TicketyBus</h2>
+        <p>We are committed to providing you the best experience in online bus ticket booking. With our vast selection of bus routes and schedules, there's always a bus ready for your journey.</p>
+    </section>
     <!-- Carousel -->
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="https://images.pexels.com/photos/3829175/pexels-photo-3829175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First Slide</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h5>Welcome to TicketyBus</h5>
+                    <p>Experience the easiest and fastest online bus ticket booking service.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="https://images.pexels.com/photos/3608967/pexels-photo-3608967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second Slide</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                    <h5>New Adventure with TicketyBus</h5>
+                    <p>Explore the area of your dreams with the comfort of us</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="https://images.pexels.com/photos/385997/pexels-photo-385997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Third Slide</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                    <h5>Always prioritize safety</h5>
+                    <p>You are our treasure and we will take good care of you.</p>
                 </div>
             </div>
         </div>
@@ -135,54 +108,20 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-    <section class="mt-4">
-        <h2>Tautan Referensi</h2>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="<?= route_to('login') ?>">Login</a></li>
-            <li class="list-group-item"><a href="<?= route_to('register') ?>">Register</a></li>
-            <li class="list-group-item"><a href="<?= route_to('bus.index') ?>">Daftar Bus</a></li>
-            <li class="list-group-item"><a href="<?= route_to('booking') ?>">Booking Tiket</a></li>
-        </ul>
-    </section>
 </div>
 
-<footer class="footer mt-4">
+<footer class="footer mt-4" style="position: relative;">
     <div class="container text-center">
         <p>&copy; 2023 KurniaCF & Rere Arga</p>
+        <p>Surabaya, Indonesia</p>
+        <a href="https://github.com/kurniacf/PBKK-QuizTicketApp" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="Github" style="height: 30px; width: 30px;">
+        </a>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-=======
-    <header>
-        <!-- Tambahkan header sesuai kebutuhan -->
-    </header>
 
-    <main>
-        <section>
-            <h1>Selamat Datang di Aplikasi Pemesanan Tiket Online</h1>
-            <!-- Tambahkan informasi umum tentang aplikasi -->
-        </section>
-
-        <section>
-            <h2>Tautan Referensi</h2>
-            <ul>
-                <li><a href="<?= route_to('user.login') ?>">Login</a></li>
-                <li><a href="<?= route_to('user.create') ?>">Register</a></li>
-                <li><a href="<?= route_to('bus.index') ?>">Daftar Bus</a></li>
-                <li><a href="<?= route_to('booking') ?>">Booking Tiket</a></li>
-                <!-- Tambahkan tautan referensi lainnya -->
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <!-- Tambahkan footer sesuai kebutuhan -->
-    </footer>
-
-    <!-- Tambahkan script atau JavaScript yang diperlukan -->
->>>>>>> 864a118931dad96c17806e8a8f8c6f7907fef54d
 </body>
 
 </html>

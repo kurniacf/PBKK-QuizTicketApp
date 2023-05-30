@@ -25,7 +25,7 @@ class UserController extends Controller
 
             $dataName = $model->where('name', $name)->first();
 
-            if ($dataName['password'] != $password) {
+            if (!$dataName || !password_verify($password, $dataName['password'])) {
                 $err = "Username atau Password salah";
                 echo $err;
             } else {
@@ -118,5 +118,25 @@ class UserController extends Controller
         $model->delete($id);
 
         return redirect()->route('user.index')->with('message', 'Pengguna berhasil dihapus.');
+    }
+
+    public function profile()
+    {
+        // Cek apakah pengguna sudah login. Jika belum, arahkan ke halaman login.
+        if (!session()->get('name')) {
+            return redirect()->route('user.login');
+        }
+
+        // Dapatkan informasi pengguna dari database berdasarkan nama pengguna yang disimpan dalam sesi.
+        $model = new UserModel();
+        $user = $model->where('name', session()->get('name'))->first();
+
+        // Jika tidak ada pengguna dengan nama tersebut, arahkan ke halaman login.
+        if (!$user) {
+            return redirect()->route('user.login');
+        }
+
+        // Jika pengguna ditemukan, tampilkan halaman profil dengan data pengguna.
+        return view('user/profile', ['user' => $user]);
     }
 }
