@@ -24,14 +24,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= route_to('bus.index') ?>">Daftar Bus</a>
+                    <a class="nav-link" href="<?= route_to('bus.list') ?>">Daftar Bus</a>
                 </li>
                 <!-- Only show this link if the user is admin -->
-                <?php if (session()->get('role') === 'admin'): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= route_to('bus.create') ?>">Tambah Bus</a>
-                    </li>
-                <?php endif; ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= route_to('booking') ?>">Booking Tiket</a>
                 </li>

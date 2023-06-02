@@ -63,7 +63,10 @@
                         </div>
                         <div class="mb-3">
                             <label for="role">Peran</label>
-                            <input type="text" name="role" class="form-control" id="role" required placeholder="Masukkan Role Anda (user/admin)...">
+                            <select name="role" id="role" class="form-control" required>
+                                <option value="user" selected>User</option>
+                                <option value="admin">Admin</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <input type="submit" name="Simpan" value="Simpan" class="btn btn-primary">

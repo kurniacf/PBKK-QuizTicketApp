@@ -16,6 +16,14 @@ class BusController extends Controller
         return view('bus/index', $data);
     }
 
+    public function list()
+    {
+        $model = new BusModel();
+        $data['buses'] = $model->findAll();
+
+        return view('bus/list', $data);
+    }
+
     public function create()
     {
         // Check if user is admin

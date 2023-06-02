@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Rere Arga',
                 'email' => 'rere@ticketybus.com',
-                'password' => password_hash('agus123', PASSWORD_DEFAULT), // Hashed password
+                'password' => password_hash('rere123', PASSWORD_DEFAULT), // Hashed password
                 'address' => 'Jl. Pahlawan No. 5, Surabaya, Jawa Timur',
                 'phone' => '08123456791',
                 'role' => 'user',

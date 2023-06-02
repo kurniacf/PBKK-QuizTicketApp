@@ -29,6 +29,7 @@ $routes->group('user', function ($routes) {
 
 $routes->group('bus', function ($routes) {
     $routes->get('/', 'BusController::index', ['as' => 'bus.index']);
+    $routes->get('list', 'BusController::list', ['as' => 'bus.list']);
     $routes->get('create', 'BusController::create', ['as' => 'bus.create']);
     $routes->post('store', 'BusController::store', ['as' => 'bus.store']);
     $routes->get('edit/(:num)', 'BusController::edit/$1', ['as' => 'bus.edit']);
