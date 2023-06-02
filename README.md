@@ -1,62 +1,64 @@
-# CodeIgniter 4 Application Starter
+# TicketyBus
 
-## What is CodeIgniter?
+## Tim Developer
+1. Kurnia Cahya Febryanto (5025201073)
+2. Rere Arga Dewanata (5025201078)
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Deskripsi Aplikasi
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+TicketyBus adalah aplikasi berbasis web yang dirancang untuk menyederhanakan proses pemesanan tiket bus secara online. Dibangun dengan menggunakan framework PHP CodeIgniter 4, aplikasi ini menyediakan berbagai fitur yang memungkinkan pengguna untuk mencari, memesan, dan membayar tiket secara online, sementara juga memudahkan manajemen dalam melacak pemesanan, menjalankan operasi sehari-hari, dan menghasilkan laporan penjualan tiket.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Fitur Aplikasi
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+Fitur yang disediakan oleh aplikasi ini adalah:
 
-## Installation & updates
+- **Booking Online**: Memungkinkan pengguna untuk melakukan pemesanan tiket secara online dengan memilih kursi dan mengisi detail identitas.
+- **Pembayaran**: Mengizinkan pengguna untuk mengisi detail pembayaran dan mengupload bukti pembayaran.
+- **Manajemen Pemesanan**: Mengizinkan admin untuk melacak dan mengelola semua pemesanan.
+- **Cetak, Unduh E-Tiket**: Setelah pembayaran diverifikasi, sistem akan menghasilkan e-tiket yang bisa dicetak atau diunduh oleh pengguna.
+- **Batalkan Tiket**: Memberikan pengguna kemampuan untuk membatalkan pemesanan tiket mereka.
+- **Cek Tiket**: Mengizinkan pengguna untuk memeriksa status pemesanan tiket mereka.
+- **Ganti Kata Sandi dan Kelola Profil**: Pengguna dapat mengubah kata sandi mereka dan memperbarui detail profil mereka.
+- **Manajemen Bus, Manajemen Rute, dan Manajemen Jadwal Bus**: Admin dapat mengelola semua aspek yang berkaitan dengan bus, rute, dan jadwal.
+- **Laporan Penjualan Tiket**: Menghasilkan laporan penjualan tiket untuk analisis lebih lanjut.
+- **Manajemen Pengguna Sistem**: Mengizinkan admin untuk mengelola pengguna sistem dan memberikan hak akses yang sesuai.
+- **Daftar Pelanggan Terdaftar**: Menyediakan daftar semua pelanggan yang terdaftar di sistem.
+- **Pencarian**: Memungkinkan pengguna untuk mencari informasi tertentu di dalam sistem.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## Mulai
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+Berikut adalah instruksi untuk mendapatkan salinan proyek ini dan menjalankannya di lingkungan lokal Anda.
 
-## Setup
+### Prasyarat
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+- Web Server (Apache/Nginx)
+- PHP versi >=7.2
+- Database Server (MySQL)
+- Composer
 
-## Important Change with index.php
+### Instalasi
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Clone repositori ini dengan menjalankan perintah berikut di terminal:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+```bash
+git clone https://github.com/kurniacf/TicketyBus.git
+```
 
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Pindah ke direktori proyek:
+```bash
+cd TicketyBus
+```
+Install dependensi menggunakan Composer:
+```bash
+composer install
+```
+Ubah pengaturan database di file app/Config/Database.php sesuai dengan pengaturan database Anda.
+Jalankan migrasi database:
+```bash
+php spark migrate
+```
+Jalankan server pengembangan:
+```bash
+php spark serve
+```
+Buka http://localhost:8080 di browser Anda.
