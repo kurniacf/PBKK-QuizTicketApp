@@ -1,4 +1,5 @@
 <?php
+
 namespace Config;
 
 $routes = Services::routes();
@@ -37,6 +38,17 @@ $routes->group('bus', function ($routes) {
     $routes->get('delete/(:num)', 'BusController::delete/$1', ['as' => 'bus.delete']);
     $routes->get('book/(:num)', 'BusController::book/$1', ['as' => 'bus.book']);
     $routes->post('process-booking/(:num)', 'BusController::processBooking/$1', ['as' => 'bus.processBooking']);
+});
+
+$routes->group('booking', function ($routes) {
+    $routes->get('/', 'BookingController::index', ['as' => 'booking.index']);
+    $routes->get('list', 'BookingController::list', ['as' => 'booking.list']);
+    $routes->get('booking/create/(:num)', 'BookingController::create/$1', ['as' => 'booking.create']);
+    $routes->post('store', 'BookingController::store', ['as' => 'booking.store']);
+    $routes->get('cancel/(:num)', 'BookingController::cancel/$1', ['as' => 'booking.cancel']);
+    $routes->get('edit/(:num)', 'BookingController::edit/$1', ['as' => 'booking.edit']);
+    $routes->post('update/(:num)', 'BookingController::update/$1', ['as' => 'booking.update']);
+    $routes->get('delete/(:num)', 'BookingController::delete/$1', ['as' => 'booking.delete']);
 });
 
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {

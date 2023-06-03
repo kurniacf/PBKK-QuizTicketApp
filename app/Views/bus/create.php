@@ -4,27 +4,46 @@
 <head>
     <title>Tambah Bus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #f7f7f7;
-        }
-
-        .container {
-            margin-top: 50px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
         }
 
         .form-container {
+            margin-top: 50px;
             background-color: #ffffff;
             padding: 20px;
             border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            animation: slideInUp 1s;
+        }
+
+        .back-button {
+            margin-top: 20px;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 
 <body>
+    <?= $this->include('partials/navbar') ?>
 
     <div class="container">
-        <h1>Tambah Bus</h1>
+        <h1 class="text-center">Tambah Bus</h1>
 
         <?php if (session()->getFlashdata('errors')) : ?>
             <div class="alert alert-danger mt-3">
@@ -34,7 +53,7 @@
             </div>
         <?php endif ?>
 
-        <div class="form-container">
+        <div class="form-container mx-auto" style="max-width: 500px;">
             <form action="<?= route_to('bus.store') ?>" method="post">
                 <div class="mb-3">
                     <label for="bus_name" class="form-label">Nama Bus</label>
@@ -89,9 +108,10 @@
 
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
+            <a href="<?= route_to('user.dashboard') ?>" class="btn btn-secondary back-button">Kembali</a>
         </div>
     </div>
-
+    <?= $this->include('partials/footer') ?>
 </body>
 
 </html>

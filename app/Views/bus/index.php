@@ -1,6 +1,11 @@
 <div class="container-fluid mt-3">
     <h1 class="mb-4">Daftar Bus yang Tersedia</h1>
 
+    <!-- Tombol Tambah Bus -->
+    <?php if (session()->get('role') === 'admin') : ?>
+        <a href="<?= route_to('bus.create') ?>" class="btn btn-primary mb-3">Tambah Bus</a>
+    <?php endif; ?>
+
     <?php if (session()->getFlashdata('message')) : ?>
         <div class="alert alert-success"><?= session()->getFlashdata('message') ?></div>
     <?php endif ?>

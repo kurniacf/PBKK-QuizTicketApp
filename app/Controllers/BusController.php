@@ -18,8 +18,14 @@ class BusController extends Controller
 
     public function list()
     {
-        $model = new BusModel();
-        $data['buses'] = $model->findAll();
+        $busModel = new BusModel();
+        $bookingModel = new BookingModel();
+
+        $buses = $busModel->findAll();
+        foreach ($buses as &$bus) {
+            $bus['booked_seats'] = $bookingModel->where('bus_id', $bus['id'])->countAllResults();
+        }
+        $data['buses'] = $buses;
 
         return view('bus/list', $data);
     }
@@ -68,7 +74,7 @@ class BusController extends Controller
             // tambahkan field dan data lainnya sesuai kebutuhan
         ]);
 
-        return redirect()->route('bus.index')->with('message', 'Bus berhasil ditambahkan.');
+        return redirect()->route('user.dashboard')->with('message', 'Bus berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -114,7 +120,7 @@ class BusController extends Controller
             // tambahkan field dan data lainnya sesuai kebutuhan
         ]);
 
-        return redirect()->route('bus.index')->with('message', 'Bus berhasil diperbarui.');
+        return redirect()->route('user.dashboard')->with('message', 'Bus berhasil diperbarui.');
     }
 
     public function delete($id)
@@ -122,6 +128,6 @@ class BusController extends Controller
         $model = new BusModel();
         $model->delete($id);
 
-        return redirect()->route('bus.index')->with('message', 'Bus berhasil dihapus.');
+        return redirect()->route('user.dashboard')->with('message', 'Bus berhasil dihapus.');
     }
 }

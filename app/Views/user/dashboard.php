@@ -68,7 +68,6 @@
             <div class="list-group mt-4">
                 <a href="<?= route_to('user.index') ?>" class="list-group-item list-group-item-action">Users</a>
                 <a href="<?= route_to('bus.index') ?>" class="list-group-item list-group-item-action">Buses</a>
-                <a href="<?= route_to('route.index') ?>" class="list-group-item list-group-item-action">Routes</a>
                 <a href="<?= route_to('booking.index') ?>" class="list-group-item list-group-item-action">Bookings</a>
             </div>
         </div>

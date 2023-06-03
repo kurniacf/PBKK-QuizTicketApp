@@ -98,6 +98,13 @@
                     <td><?= $bus['departure_time'] ?></td>
                     <td><?= $bus['arrival_time'] ?></td>
                     <td><?= $bus['distance'] ?></td>
+                    <td>
+                        <?php if ($bus['total_seats'] > $bus['booked_seats']) : ?>
+                            <a href="<?= route_to('booking.create', $bus['id']) ?>" class="btn btn-primary">Book</a>
+                        <?php else : ?>
+                            <button class="btn btn-primary" disabled>Book</button>
+                        <?php endif ?>
+                    </td>
                 </tr>
             <?php endforeach ?>
             </tbody>

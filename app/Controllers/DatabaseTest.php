@@ -11,12 +11,9 @@ class DatabaseTest extends Controller
         // Manual DB connection
         $conn = mysqli_connect('127.0.0.1', 'root', '', 'pbkk_quiz');
 
-        if ($conn)
-        {
+        if ($conn) {
             echo 'Successfully connected to the database.';
-        }
-        else
-        {
+        } else {
             echo 'Failed to connect to the database.';
         }
 

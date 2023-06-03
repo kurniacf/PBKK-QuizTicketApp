@@ -48,8 +48,8 @@ class CreateTickets extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('booking_id','bookings','id','CASCADE','CASCADE');
-        $this->forge->addForeignKey('user_id','users','id','CASCADE','CASCADE');
+        $this->forge->addForeignKey('booking_id', 'bookings', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('tickets');
     }
 

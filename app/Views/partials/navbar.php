@@ -27,9 +27,6 @@
                     <a class="nav-link" href="<?= route_to('bus.list') ?>">Daftar Bus</a>
                 </li>
                 <!-- Only show this link if the user is admin -->
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= route_to('booking') ?>">Booking Tiket</a>
-                </li>
                 <?php if (session()->get('role') === 'admin'): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= route_to('user.dashboard') ?>">Dashboard</a>
